@@ -50,7 +50,7 @@ function draw(){
 
     fill('red');
     textSize(22);
-    text("Rajendra's Missiles", 260, 470);
+    text("Genetic AI Missiles", 260, 470);
 }
 
 function Population(){
