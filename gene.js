@@ -1,7 +1,7 @@
 
 var rocket; 
 var population;
-var lifespan = 600;
+var lifespan = 500;
 var count = 0;
 var lifeP;
 var target;
@@ -20,6 +20,7 @@ function setup(){
 }
 
 function draw(){
+    
     background(0);
     population.run();
     lifeP.html(count);
@@ -32,16 +33,29 @@ function draw(){
         // population = new Population(); 
     }
 
-    fill(255);
-    noStroke();
-    rect(120, 230, 2000, 10);
+    fill('red');
+    textSize(22);
+    text("Terrorist", 310, 30);
 
+    fill('green');
+    noStroke();
+    rect(120, 230, 2000, 5);
+
+    fill('red');
     ellipse(target.x, target.y, 16, 16);
+
+    
+    fill('red');
+    ellipse(350, 490, 16, 16);
+
+    fill('red');
+    textSize(22);
+    text("Rajendra's Missiles", 260, 470);
 }
 
 function Population(){
     this.rockets = [];
-    this.popsize = 1050;
+    this.popsize = 150;
     this.matingpool = [];
 
     for (var i = 0; i < this.popsize; i++){
@@ -107,7 +121,7 @@ function DNA(genes){
         this.genes = [];
         for (var i = 0; i < lifespan; i++){
             this.genes[i] = p5.Vector.random2D();
-            this.genes[i].setMag(0.2);
+            this.genes[i].setMag(0.3);
         }
     }
 
@@ -129,7 +143,7 @@ function DNA(genes){
         for (var i = 0; i < this.genes.length; i++) {
             if(random(1) < 0.01) {
                 this.genes[i] = p5.Vector.random2D();
-                this.genes[i].setMag(0.2);
+                this.genes[i].setMag(0.3);
             }
         }
     }
@@ -201,8 +215,8 @@ function Rocket(dna){
         translate(this.pos.x, this.pos.y);
         rotate(this.vel.heading());
         rectMode(CENTER);
-        fill('white');
-        rect(0, 0, 5, 2);
+        fill('#ffa500');
+        triangle(0, 0, 0, 10, 20, 5);
 
         pop();
     }
